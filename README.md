@@ -1,5 +1,8 @@
 # 介紹
+Youtube：[Creating Share Sheet in App](https://www.youtube.com/watch?v=jxhq1_7HkJg)
 Github：[iOSAcademy-ShareSheet](https://github.com/RainBowT0506/iOSAcademy-ShareSheet)
+Github：[iOSAcademy-ShareSheet-ObjC](https://github.com/RainBowT0506/iOSAcademy-ShareSheet-ObjC)
+
 
 iPhone
 
@@ -69,7 +72,7 @@ iPad
 # 測試分享表單
 - 運行項目，點擊按鈕查看分享表單。
 - 檢查是否有權限保存圖片，如果沒有，添加相應的權限到 `Info.plist`。
-
+    `Privacy - Photo Library Additions Usage Description`
 # iPad 上的 Popover Controllers
 - 設置 iPad 模擬器，運行項目查看分享表單。
 - 調整函數以接受發送者參數，並設置 `popoverPresentationController` 的 `sourceView` 和 `sourceRect`。
