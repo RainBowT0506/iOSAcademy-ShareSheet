@@ -80,6 +80,39 @@ iPad
 - 在 iPad 上需要特別處理 Popover 控制器以防止崩潰。
 - 確保分享內容非空以避免錯誤。
 
+# _: 與 _ sender: UIButton
+在 Swift 中，`_` 和 `sender: UIButton` 是用來定義方法參數的語法。讓我們分別解釋它們的意義：
+
+### `_:`
+在 Swift 方法的參數列表中，使用 `_` 作為參數的外部名稱表示該參數在調用該方法時不需要外部名稱。例如：
+
+```swift
+@objc private func presentShareSheet(_ sender: UIButton) {
+```
+
+在這個方法定義中，`_` 表示當我們在其他地方調用這個方法時，不需要指定 `sender` 參數的名稱。例如：
+
+```swift
+button.addTarget(self, action: #selector(presentShareSheet(_:)), for: .touchUpInside)
+```
+
+當按鈕被點擊時，這行代碼將調用 `presentShareSheet` 方法，並將按鈕本身作為參數傳遞給 `sender`。由於我們使用了 `_`，我們不需要在調用方法時寫出參數名稱。
+
+### `sender: UIButton`
+`sender: UIButton` 則是在方法中定義一個名為 `sender` 的參數，且該參數的類型是 `UIButton`。這意味著當這個方法被調用時，必須傳遞一個 `UIButton` 類型的對象給這個參數。
+
+完整的解釋如下：
+
+```swift
+@objc private func presentShareSheet(_ sender: UIButton) {
+```
+
+這段程式碼定義了一個名為 `presentShareSheet` 的方法，它接受一個參數：
+- `_`：表示在調用此方法時不需要外部參數名稱。
+- `sender`：這是方法內部參數的名稱。
+- `UIButton`：這是參數的類型，表示這個參數必須是一個 `UIButton` 類型的對象。
+
+總結來說，這種語法設計的好處是讓方法調用時更簡潔，而方法內部仍能使用有意義的參數名稱。
 # 錯誤與提示訊息
 ## Argument of '#selector' does not refer to an '@objc' method, property, or initializer
 ```
@@ -104,7 +137,6 @@ button.addTarget(self, action: #selector(presentShareSheet), for: .touchUpInside
 # 疑問
 ![CleanShot 2024-07-17 at 11.25.06](https://hackmd.io/_uploads/BJeaF2V_C.png)
 沒有出現 Save Image
-
 ![CleanShot 2024-07-17 at 11.28.30](https://hackmd.io/_uploads/SyRv9nEuA.png)
 加上就有 Save Image
 
